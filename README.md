@@ -4,7 +4,7 @@ I -- Installation de l'application en local:
 Cette application n'est actuellement pas déployée sur internet. Pour l'ouvrir il vous faut en prérequis installer un serveur web local sur votre ordinateur. WAMP pour les systemes d'exploitation Windows.
 
 1- cloner ce dossier sur votre ordinateur
-Copiez l'url : https://github.com/A6miNo/G_VPARROT-ECF.git. Dans votre terminal de commande entre git clone suivi de l'url ci dessus.
+Copiez l'url : https://github.com/A6miNo/garagevparrot.git Dans votre terminal de commande entre git clone suivi de l'url ci dessus.
 
 2-acceder au visuel web 
 une fois installé, allez dans vos dossier pour récuperer le serveur web. un chemin courant est: C:\wamp64\www.
