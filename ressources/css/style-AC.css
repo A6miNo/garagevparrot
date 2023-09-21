@@ -1,0 +1,623 @@
+/* Réinitialisation des marges et des rembourrages pour tous les éléments */
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+  --font-size: 1rem;
+  /* CSS HEX */
+  --color-first: #1D3557;
+  --color-second: #457B9D;
+  --color-three: #A8DADC;
+  --color-four: #F1FAEE;
+  --color-five: #FFBB00;
+}
+
+
+/* Reset */
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+i{
+  color: var(--color-three);
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Titillium Web', sans-serif;
+  height: auto;
+  width: 100%;
+  background-image: linear-gradient(-90deg, var(--honeydew) 0%, var(--non-photo-blue) 30%, var(--cerulean) 100%);
+  color: var(--color-first);
+}
+
+.hide {
+  display: none;
+}
+
+.hour {
+
+  border: 3px double var(--color-four);
+
+  padding: 5px;
+  background-color: rgba(240, 248, 255, 0.292);
+  justify-self: center;
+  align-self: bottom;
+  color: var(--color-four);
+ 
+}
+.hour li{
+  text-transform: capitalize;
+  margin: 5px 0;
+}
+.image-office {
+  width: 45%;
+  flex-shrink: 0;
+  height: 250px;
+  object-fit: cover;
+  object-position: top;
+  margin: 2rem;
+  border-radius: 10px 50px 50px 0;
+}
+.flux {
+  margin-left: 4rem;
+  margin-right: 4rem;
+  padding: 1rem;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.container{
+  
+  justify-content: flex-start;
+  gap:2rem;
+  margin-bottom: 1rem;
+}
+
+/* Style Titres */
+h1 {
+  font-size: x-large;
+  color: var(--color-five);
+  text-align: center;
+  text-shadow: 2px 0 var(--color-first), -2px 0 var(--color-first), 0 2px var(--color-first), 0 -2px var(--color-first),
+      1px 1px var(--color-first), -1px -1px var(--color-first), 1px -1px var(--color-first), -1px 1px var(--color-first);
+}
+
+h2 {
+  text-align: center;
+  line-height: 2.2rem;
+  font-size: x-large;
+  color: var(--color-first);
+  text-shadow: 0px 1px 2px #A8DADC;
+  border-bottom: 4px dotted #1D3557;
+  margin-bottom: 1rem;
+ }
+
+h3 {
+  font-size: medium;
+  color: var(--color-second);
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px #A8DADC;
+  line-height: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0.2rem;
+  font-weight: 800;
+  background-color: var(--color-four);
+}
+
+h4 {
+  font-size: large;
+  color: var(--color-first);
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 2rem;
+  border-bottom: 4px dotted #A8DADC;
+}
+/*style align center*/
+.align{
+  text-align: center;
+}
+/* Style input */
+select:hover, input:hover {
+  border: 2px solid var(--color-first);
+}
+
+/* Styles pour les boutons */
+.btn {
+  border-radius: 50px;
+  background: linear-gradient(to bottom, var(--color-three), var(--color-second)); /* Dégradé de couleur */
+  color: var(--color-four);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  text-shadow: none;
+  transition: all 0.5s; /* Transition pour l'effet de dégradé */
+}
+
+/* Effet bouton appuyé au survol */
+.btn:hover {
+  background: var(--color-three); /* Couleur d'arrière-plan du bouton */
+  color: var(--color-four);
+  text-shadow: var(--color-second) 10px 0 10px;
+}
+
+/* Style pour les boutons contact */
+.btn-contact {
+  padding: 40px;
+  font-size: large;
+  font-weight: 600;
+  background-color: inherit;
+}
+
+.btn-home {
+  position: relative;
+  padding: 1.4rem 4.2rem;
+  font-size: 1rem;
+  color: var(--color-first);
+  text-transform: uppercase;
+  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
+}
+
+.btn-home:before, .btn-home:after {
+  content: '';
+  position: absolute;
+  transition: inherit;
+  z-index: -1;
+}
+
+.btn-home:hover {
+  color: var(--color-four);
+  transition-delay: .5s;
+}
+
+.btn-home:hover:before {
+  transition-delay: 0s;
+}
+
+.btn-home:hover:after {
+  background: var(--color-first);
+  transition-delay: .35s;
+}
+
+/* btn Effet route */
+
+.btn-road:before {
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 0;
+  border: 2px solid var(--color-first);
+  border-left: 0;
+  border-right: 0;
+}
+
+.btn-road:after {
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  background: linear-gradient(to top, var(--color-first) 0%, var(--color-second) 20%);
+}
+
+.btn-road:hover:before {
+  left: 0;
+  width: 100%;
+}
+
+.btn-road:hover:after {
+  top: 0;
+  height: 100%;
+}
+
+/* Navbar */
+
+.logo {
+  width: 14rem;
+  height: auto;
+  margin-left: 2rem;
+  object-fit: cover;
+}
+
+.icone {
+  object-fit: cover;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-second);
+  background: var(--color-three);
+  height: 7.5em;
+}
+
+.navbar_links {
+  display: flex;
+}
+
+.navbar_link {
+  padding: 0 10px;
+  /* espace à gauche et à droite entre les li */
+  justify-self: center;
+  flex-shrink: 0;
+}
+
+.burger {
+  display: none;
+}
+
+.navbar_link > a::after, .navbar_link > a::before {
+  display: block;
+  width: 0;
+  content: "";
+  /* type d'animation discrete ça permettra de prendre en compte les after et les before */
+  background: var(--color-five);
+  height: 1px;
+  transition: all .4s;
+}
+
+.navbar_link:hover > a::after, .navbar_link:hover > a::before {
+  width: 100%;
+  /* au survol l'element after s'agrandira */
+}
+
+/* Lien de la page courante  */
+.active {
+
+  background-color:rgba(255, 187, 0, 0.402);
+  border-radius: 20px;
+  pointer-events: none;
+  cursor: default;
+  
+}
+
+/* Stylisation du MAPS */
+.maps {
+  width: 40rem;
+  height: 100%;
+}
+
+.geo-maps {
+  background-color: var(--color-first);
+  margin-top: 4.5rem;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.maps-content {
+ 
+  gap: 1rem;
+  margin: 2rem;
+  justify-content: space-between;
+}
+
+.geo-maps h2 {
+  width: 75%;
+  color: var(--color-five);
+  font-size: xx-large;
+  align-self: center;
+}
+
+.col-fa {
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  align-self: center;
+}
+
+/*FOOTER */
+
+footer{
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 0.5fr 1fr 0.5fr;
+  background-image: linear-gradient(-20deg, var(--honeydew) 0%, var(--non-photo-blue) 30%, var(--cerulean) 100%);
+}
+
+.logo-grid{
+  width: 60%;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start:1 ;
+  grid-row-end:1 ;
+  justify-self: center;
+}
+
+/*bloc lien principaux footer*/
+.footer_list-link{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start:2 ;
+  grid-row-end:2 ;
+  margin-left: 3rem;
+  justify-self: flex-start;
+  align-self: center;
+}
+.footer_list-link ul{
+  margin-left: 1rem;
+}
+
+/*transformation lien*/
+.footer_list-link a{
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer_list-link a:hover{
+  letter-spacing: 3px;
+  font-size: 25px;
+}
+
+/* bloc reseaux sociaux*/
+.social-network{
+  justify-content: center;
+  align-self: center;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start:1 ;
+  grid-row-end:1 ;
+  margin-right: 1rem;
+}
+
+.socials-logo{
+  display: flex;
+  justify-content: space-between;
+  gap:1rem;
+
+}
+
+/*Effet secouer sur image reseaux sociaux*/
+.fa-brands{
+  margin-left:20px;
+  color:var(--color-five);
+  transition: transform 0.3s;
+}
+  
+.fa-brands:hover{
+  animation: shake 0.5s infinite;   
+}
+  @keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, 0px); }
+  75% { transform: translate(-2px, 2px); }
+  100% { transform: translate(2px, 0px); }
+  }
+
+/*bloc horaires*/
+.hour-foot{
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  justify-self: center;
+  align-self: bottom;
+  border: 2px solid var(--color-five);
+  padding: 1rem;
+}
+
+/*bloc donner un avis*/
+.footer_pushes{ 
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start:2 ;
+  grid-row-end:2 ;
+  justify-self: center;
+  align-self: center;
+}
+
+/*bloc copyright - mentions légales*/
+.footer_copyrights {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start:3 ;
+  grid-row-end:3 ;
+  justify-self: center;
+  align-self: center;
+}
+
+.footer_copyrights a{
+text-decoration: underline;
+}
+
+/* Écran mobile */
+@media screen and (max-width: 801px) {
+  * {
+      padding: 0;
+      margin: 0;
+  }
+  .flux {
+      margin-left: 0;
+      margin-right: 0;
+  }
+
+
+  /* Navbar Burger Responsive */
+  .logo {
+      width: 45%;
+  }
+  .navbar {
+      height: 24vh;
+  }
+  .navbar_links {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      width: 0;
+      height: 100vh;
+      /* la hauteur pour que cela prenne tout l'ecran auquel on enleve la hauteur pour ne pas faire dépasser et éviter un scroll */
+      position: absolute;
+      top: 11rem;
+      right: 0;
+      z-index: 99;
+      background: var(--color-three);
+      transform: translateX(110%);
+      transition: all 0.3s ease-in-out;
+  }
+  .navbar_link:hover > a::after, .navbar_link:hover > a::before {
+      width: 0%;
+  }
+  .open-nav .navbar_links {
+      width: 100vw;
+      transform: translateX(0);
+  }
+  .navbar_link {
+      transform: translateX(101%);
+      /* pour l'animation effet texte qui arrive */
+      transition: all 0.3s ease-in-out;
+  }
+  .open-nav .navbar_link {
+      transform: translateX(0);
+  }
+  .navbar_link > a {
+      display: block;
+      /* par défaut a est en inline */
+      padding: 1rem;
+      font-size: 1.7rem;
+      color: var(--color-second);
+      transition: all 0.1s ease-in-out;
+  }
+  .navbar_link > a:hover {
+      padding-left: 2rem;
+      letter-spacing: 5px;
+  }
+  .navbar_link:last-child {
+      margin-left: 0;
+  }
+
+  /* Toggle menu */
+  .burger {
+      display: block;
+      position: relative;
+      /* de façon à placer les éléments after et before en absolute */
+      padding: 0;
+      width: 3rem;
+      height: 3rem;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      margin: 5px;
+  }
+  .bar {
+      display: block;
+      width: 90%;
+      height: 4px;
+      background: var(--color-second);
+      border-radius: 3px;
+      transition: all 0.5s ease-in-out;
+  }
+  .bar::before, .bar::after {
+      content: "";
+      width: 90%;
+      height: 4px;
+      position: absolute;
+      /* par rapport à la relative de burger */
+      left: 0;
+      /* pour s'aligner à bar */
+      background: var(--color-second);
+      border-radius: 3px;
+      transition: all 0.5s ease-in-out;
+  }
+  .bar::before {
+      transform: translateY(-10px);
+      /* place la barre sur l'axe vertical au dessus de bar */
+  }
+  .bar::after {
+      transform: translateY(10px);
+      /* place la barre sur l'axe vertical au dessous de bar */
+  }
+  .open-nav .bar {
+      width: 0;
+      background: transparent;
+      /* pour que lorsque l'on clique la barre du milieu disparait */
+  }
+  .open-nav .bar::before {
+      transform: rotate(45deg);
+  }
+  .open-nav .bar::after {
+      transform: rotate(-45deg);
+  }
+
+  /* Animation */
+  .open-nav .first {
+      transition: all 1s ease-out;
+  }
+  .open-nav .second {
+      transition: all 1.1s ease-out;
+  }
+  .open-nav .third {
+      transition: all 1.2s ease-out;
+  }
+  .open-nav .four {
+      transition: all 1.3s ease-out;
+  }
+  .open-nav .fifth {
+      transition: all 1.4s ease-out;
+  }
+  .maps {
+    width: auto;
+}
+.col-maps {
+    align-self: center;
+}
+.maps-content {
+    flex-direction: column;
+}
+.geo-maps {
+    background-color: var(--color-first);
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+.main-garage{
+    width: 100%;
+      }
+footer{
+      display: flex;
+      flex-direction: column;
+      gap:1rem;
+      align-items: center;
+      padding: 1rem;
+ }
+
+ .footer_list-link ul {
+     
+      display: flex;
+      flex-direction: column;
+      margin-left: 0
+ }
+ .footer_list-link a {
+      font-size: 10px;
+      padding: 0;
+      margin: 0;
+      gap:0;
+}
+}

@@ -1,0 +1,144 @@
+
+footer{
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 0.5fr 1fr 0.5fr;
+    background-color: var(--color-three);
+}
+
+.logo-grid{
+    width: 15rem;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start:1 ;
+    grid-row-end:1 ;
+    justify-self: center;
+
+}
+
+
+/*bloc lien principaux footer*/
+.footer_list-link{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start:2 ;
+    grid-row-end:2 ;
+    justify-self: flex-start;
+    align-self: center;
+}
+.footer_list-link p{
+color: brown;
+}
+.footer_list-link ul{
+    margin-left: 1rem;
+
+}
+
+/*transformation lien*/
+.footer_list-link a{
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer_list-link a:hover{
+    letter-spacing: 3px;
+    font-size: 25px;
+    }
+
+
+
+/* bloc reseaux sociaux*/
+.social-network{
+    justify-content: center;
+    align-self: center;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start:1 ;
+    grid-row-end:1 ;
+    margin-right: 1rem;
+}
+
+.socials-logo{
+    display: flex;
+    justify-content: space-between;
+    gap:1rem;
+
+}
+
+/*Effet secouer sur image reseaux sociaux*/
+.fa-brands{
+    margin-left:20px;
+    color:var(--color-five);
+    transition: transform 0.3s;
+}
+    
+.fa-brands:hover{
+    animation: shake 0.5s infinite;   
+}
+    @keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-2px, 2px); }
+    50% { transform: translate(2px, 0px); }
+    75% { transform: translate(-2px, 2px); }
+    100% { transform: translate(2px, 0px); }
+    }
+
+/*bloc horaires*/
+.hour-foot{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    justify-self: center;
+    align-self: bottom;
+    border: 2px solid var(--color-five);
+    padding: 1rem;
+
+}
+
+
+/*bloc donner un avis*/
+.footer_pushes{ 
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start:2 ;
+    grid-row-end:2 ;
+    justify-self: center;
+    align-self: center;
+}
+
+
+/*bloc copyright - mentions légales*/
+.footer_copyrights {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start:3 ;
+    grid-row-end:3 ;
+    justify-self: center;
+    align-self: center;
+}
+
+.footer_copyrights a{
+text-decoration: underline;
+}
+/* Écran mobile */
+@media screen and (max-width: 801px) {
+    footer{
+        display: flex;
+        flex-direction: column;
+        gap:1rem;
+        align-items: center;
+    }
+  
+  
+    .footer_list-link{
+        margin-left: 0;
+        text-align: center;
+      
+    }
+    .footer_list-link li {
+        margin: 0.5rem 0;
+        background-color: brown;
+    }
+}

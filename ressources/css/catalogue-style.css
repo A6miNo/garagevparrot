@@ -1,0 +1,359 @@
+
+  
+  body {
+    align-items: center; 
+    margin: 0;
+    padding: 0;
+  }
+
+  /*style pour la liste de l'affichage des cartes*/
+  .info-galerie {
+    background-color: #4f9446; 
+    padding: 10px;
+    border-radius: 5px; 
+    color: #fff; 
+    text-align: center; 
+    
+  }
+  .list-flex {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--color-first); 
+    justify-content: space-around;
+    gap:20px;
+    padding: 10px;
+    border-radius: 5px; 
+    list-style: none;
+  }
+  
+  /*style sur le conteneur*/
+  .container_catalogue {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px; 
+    background-image: linear-gradient(20deg, var(--honeydew) 0%, var(--non-photo-blue) 40%, var(--cerulean) 100%);
+    margin: 10px; 
+    padding: 20px; 
+    border-radius: 20px; 
+  }
+  
+ /* Styles pour la barre latérale */
+ .side_bar {
+    background-color: transparent; 
+    padding: 1rem;
+    border: 0.25rem solid var(--color-five); 
+    border-radius: 5px; 
+    color: var(--color-four); 
+    box-shadow: 0px 0px 10px rgba(255, 187, 0, 0.5); /* Ombre légère */
+  }
+  .head-filter{
+    display: flex;
+    justify-content: space-between;
+  }
+  .arrow{
+    display: none;
+  }
+  .side_bar h2 {
+    font-size: 2rem; 
+    margin-bottom: 1rem; 
+  
+  }
+  
+  /* Styles pour les étiquettes de filtre */
+  .side_bar label {
+    font-weight: bold;
+    margin-top: 20px; /* Espacement entre les étiquettes */
+  }
+  
+  /* Styles pour les options de la liste déroulante */
+  .side_bar select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid var(--color-five);
+    border-radius: 3px;
+    background-color: var(--color-four);
+  }
+
+  /* Styles pour le formulaire de filtre */
+#filter-form {
+    background-color: var(--color-second);
+    padding: 20px;
+    border-radius: 5px; 
+}
+
+.separator {
+    border-top: 2px solid var(--color-five);
+    line-height: 2.5rem;
+}
+.searchDiv {
+    text-align: none; 
+    padding-bottom:2rem;
+    padding-top: 0.5rem;
+  
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+.input-group {
+    padding-top:0;
+    justify-content: space-around;
+    gap:3rem;
+    padding-top: 1rem;
+    height: 4rem;
+}
+
+.input-group input {
+    margin-bottom: 0.4rem; /* Espacement entre les éléments input */
+}
+
+legend{
+    padding: 3px 6px;
+    color: var(--color-four);
+  
+}
+.fieldset-group {
+    gap:1rem;
+}
+
+
+/* Styles pour les fieldset  */
+fieldset {
+  border-color: var(--color-first);
+  box-shadow: none;
+  padding: 0.2rem;
+  align-self: center;
+  min-width: 365px;  
+}
+
+fieldset:hover{
+  box-shadow: 5px 5px 5px rgba(53, 69, 192, 0.473);
+}
+/*Style partie prix*/
+.price-group{
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: baseline;
+} 
+.price-group label{
+  margin: 0;
+}
+.price-group input{
+ padding: 15px;
+ font-size: medium;
+ max-width: 100px;
+}
+/*style de l'info de filtre*/
+
+.info-filter {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.info-filter p {
+    margin: 10px 0 0;
+} 
+#nbsearch {
+    margin-right: 0.3rem; /* Espacement entre le texte et le bouton */
+ }
+
+#tri{
+  width: 10rem;
+  margin-left: 1rem;
+}
+  /* style tremblement pour le bouton de filtre */
+.btn-filter:hover{
+    animation: shake 0.5s ease infinite; /* Animation de secousse */
+}
+  
+  /* Animation de secousse */
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-0.3rem);
+    }
+    50% {
+      transform: translateX(0.3rem);
+    }
+    75% {
+      transform: translateX(-0.3rem);
+    }
+  }
+
+ /* Styles pour la section du catalogue */
+.catalogue {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 1rem; 
+    
+   
+
+    background-color:inherit; 
+    margin: 0;
+    padding: 0;
+}
+   /*Style sur les cartes*/
+.card{
+    background-color: var(--color-second);;
+    border: 1px solid var(--color-five) ;
+    border-radius:5px;
+    padding: 0.5rem;
+    box-shadow: none;
+    transition: box-shadow 0.4s ease-out;  
+    height:60rem;
+
+
+    
+}
+
+.card:hover {
+    box-shadow: 10px 5px 5px #39486a;
+ }
+  
+/* Styles pour les images des cartes */
+.card_image {
+    max-width: 100%;
+    height: auto; 
+    border-radius: 5px; 
+    margin-top: 1rem;
+    width: 450px;
+    max-height: 240px;
+    min-height: 200px;
+}
+
+  /* Styles pour les Titres des cartes */
+.card_title{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+
+  /* Styles pour les caracteritiques des cartes */
+.card-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 0.5rem; 
+}
+  /* Styles pour le resumé des cartes */
+.card_description{
+   flex-wrap: wrap;
+   margin-top:0.2rem;
+    margin-left: 1rem;
+}
+ 
+  /* Styles pour les prix des cartes */
+.card-price p{
+    color:var(--color-second);
+    font-weight: 600; 
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 5px;
+    background-color: var(--color-four);
+}
+/* Styles pour le bouton des cartes */
+.card_contain .card_button {
+    align-self: flex-end; 
+}
+
+  /* Styles pour les écrans de largeur inférieure ou égale à 768px (mode téléphone) */
+  
+@media screen and (max-width: 768px) {
+
+
+ 
+    .container_catalogue {
+      display: flex; 
+      flex-direction: column; 
+      margin:  auto;
+    }
+    .hidden {
+        display: none;
+    }
+  
+    .side_bar {
+      width: 100%; 
+    }
+  
+   
+    .catalogue {
+      padding: 0;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card{
+      margin: 10px;
+    }
+    .card:hover {
+      box-shadow: none;
+   }
+    .side_bar h2{
+        margin-top: 1rem;
+    }
+    .input-group{
+      gap:0.5rem;
+    }
+    .input-goup .row{
+      justify-content: center;
+    }
+    /* toggle filter*/
+    .arrow{
+        display: block;
+        position: relative;/*de façon à placer les element after et before en absolute*/
+        padding:0;
+        width:3rem ;
+        height:3rem ;
+        border: none;
+        background: beige;
+        cursor: pointer;
+        margin-bottom: 1rem;
+    }
+    .bar-arrow{
+        display: block;
+        width: 90%;
+        height:4px;
+        background: transparent;
+        border-radius: 3px;
+        transition: all 0.5s ease-in-out;
+        
+    }
+    .bar-arrow::before, .bar-arrow::after{
+        content: "";
+        width: 50%;
+        height:4px;
+        position:absolute; 
+        top:15px;
+        left:12px;/*pour s'aligner à bar*/
+        background: black;;
+        border-radius: 3px;
+        transition: all 0.5s ease-in-out;
+    }
+    .bar-arrow::before{
+        transform: rotate(45deg) translateY(10px); /* Transformation pour former un "V*/
+    }
+    .bar-arrow::after{
+        transform: rotate(-45deg) translateY(10px); /* Transformation pour former un "V*/
+    }
+      
+      /* Inverse les barres comme un effet miroir */
+    .open-filter .bar-arrow::before {
+        transform: rotate(45deg) translateY(0px) translateX(10px);
+        
+    }
+    
+    .open-filter .bar-arrow::after {
+        transform: rotate(140deg) translateY(0px) translateX(10px);
+    }
+    
+    .open-filter .bar-arrow {
+        width: 0;
+        background: transparent;
+    }
+    
+}

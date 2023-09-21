@@ -1,0 +1,41 @@
+* Stylisation du MAPS*/
+iframe {
+    width:600 ;
+    height:450;
+}
+.geo-maps{
+    background-color: var(--color-first);
+    margin-top: 75px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+.geo-maps .flux{
+    display: flex;
+    gap: 50px;
+}
+.geo-maps .container-texts{
+    color: white;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+.geo-maps h2{
+    width: 75%;
+    color: var(--color-five);
+    font-size: xx-large;
+    }
+
+.geo-maps .container-texts p {
+    flex-grow: 1;
+    
+}
+
+.col-fa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    align-self: center;
+}
+

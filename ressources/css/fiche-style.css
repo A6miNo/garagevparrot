@@ -1,0 +1,233 @@
+.contain{
+    background-color: var(--color-second);
+    border-radius: 0.6rem 0.6rem 0 0;
+    border: 2px solid rgba(214, 214, 214, 0.81);
+    padding: 2rem 2.5rem 2rem 2.5rem;
+    min-height: 794px;
+    margin: 1rem;
+    box-shadow: 0px 0px 10px rgba(254, 251, 251, 0.5);
+}
+
+/* Styles pour le bouton close */
+#close {
+   background: beige;
+    border: 2px solid rgb(239, 12, 12); 
+    position: relative;
+    width: 30px;
+    height: 30px;   
+    align-self: center; 
+}
+
+#close::before,
+#close::after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 4px;
+    border-radius: 3px;
+    background-color: rgb(197, 10, 10);
+    transform: translateY(-50%);
+}
+
+#close::before {
+    transform: rotate(45deg);
+    border: 2px solid rgb(255, 3, 3);
+    left: -0.5px;
+    top: 10px;
+   
+}
+
+#close::after {
+    transform: rotate(-45deg);
+    top: 0;
+    border: 2px solid  rgb(255, 3, 3);
+    left: -0.5px;
+    top: 10px;
+}
+
+/* position pour le bouton Contacter le vendeur */
+
+
+.description button{
+    position: absolute; /* Position absolue par rapport à la section parente */
+    bottom: 10px; 
+    left: 50%; /* Centre horizontalement */
+    transform: translateX(-50%); /* Ajustement pour centrer correctement */
+
+}
+
+main{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    gap: 10px
+}
+
+.description {
+    align-items: flex-start;
+    position: relative;
+    min-width: 200px;
+}
+.description h1{
+    margin: 0;
+}
+
+#resume{
+    padding-bottom: 10rem;
+}
+#price{
+    
+    color:rgba(255, 0, 0, 0.515);
+    font-weight: 800;
+    font-style:  italic small-caps bold 16px/2 cursive;
+    font-size: xx-large;
+    padding: 20px;
+    background-color: aliceblue;
+}
+
+
+
+
+/*Style pour les photos*/
+.photo{
+    margin:0px 15px 15px 15px  ;
+    gap:10px;
+    align-items: center;
+    text-align: center; 
+   
+}
+.list-photo{
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0 -5px; /* une marge négative sur les côtés pour compenser les marges internes des li */
+}
+.list-photo li {
+    margin: 0 5px; 
+}
+
+.img-small{
+    width: 8em;
+    max-height: 8vh;
+    background-size: cover;
+    
+}
+.img_one{
+    max-width: 30em;
+    max-height: 50vh;
+    background-size: cover;
+}
+section .photo ul{
+display: flex;
+flex-direction: row;
+}
+.fa-solid{
+    color: #1D3557;
+}
+
+/* Styles spécifiques aux écrans mobiles */
+@media (max-width: 768px) {
+  
+    #btn_nav {
+        position: fixed;
+        top: 0;
+        left: 5px;
+        width: 100%;
+        z-index: 1;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    main{
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 4rem;
+    }
+
+    .close-button {
+        display: flex;
+    }
+
+    .contain {
+       margin-top: 50px;
+        padding: 1rem;
+    }
+
+  
+    #price, h1, h2{
+        text-align: center;
+    }
+    .description{
+        align-items: center;
+   
+    }
+
+    .photo {
+        align-items: center;
+        text-align: center; 
+    }
+
+    .list-photo {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        
+    }
+
+    .img-small {
+        max-width: 80%;
+        max-height: auto;
+        background-size: cover;
+    }
+
+    .img_one {
+        max-width: 80%;
+        max-height: auto;
+        background-size: cover;
+        align-items: center;
+    }
+    .icon-list{
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+  
+
+    /* Styles pour les boutons précédent et suivant */
+  
+    #prec,
+    #suiv {
+        font-size: 0; /* Masquer le texte en mode responsive */
+        color: transparent; /* Masquer la couleur du texte */
+        background-color: beige; /* Appliquer la couleur de fond */
+        padding: 5px 10px; /* Ajuster le rembourrage du bouton */
+        border: none; /* Supprimer la bordure */
+        border-radius: 5px; /* Ajouter des coins arrondis */
+        width: auto; /* Ajuster la largeur automatiquement */
+        
+    }
+
+    
+        /* Styles pour le bouton précédent */
+    #prec::before {
+        content: "<"; /* Afficher < pour le bouton précédent */
+        font-size: 18px; /* Ajuster la taille de l'icône */
+        color: black; /* Appliquer la couleur de l'icône */
+    }
+
+    /* Styles pour le bouton suivant */
+    #suiv::after {
+        content: ">"; /* Afficher > pour le bouton suivant */
+        font-size: 18px; /* Ajuster la taille de l'icône */
+        color: black; /* Appliquer la couleur de l'icône */
+    }
+    
+}
+
+
+

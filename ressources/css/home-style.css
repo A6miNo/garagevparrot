@@ -1,0 +1,376 @@
+/* Style pour le conteneur de la video  (parent et enfants)*/
+.main-contain {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Un tiers de la hauteur de l'écran */
+}
+.test{
+    background-color: red;
+}
+.child1{
+    position: absolute;
+    top: 1%;
+    left: 0;
+    width: 100%;
+    height: 95%;
+}
+
+.child2{
+    z-index: 1;
+  
+}
+
+/* Style pour la vidéo en arrière-plan  */
+#video-background {
+
+    overflow: hidden;
+    opacity: 0.7;
+    filter: saturate(20%);
+}
+
+#video-background video {
+    width: 100%;
+    height: 99%;
+    object-fit: cover; /* Pour conserver les dimensions de la vidéo */
+    object-position: bottom;
+}
+
+/* Style pour le contenu texte  */
+
+.content-text {
+    margin: 0.5rem;
+    text-align: center;
+    gap: 0.5rem;
+    margin:2rem;
+}
+
+.description {
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    color: rgba(80, 59, 1, 0.822);
+    font-size: large;
+    font-weight: 700;
+    background-color: rgba(240, 248, 255, 0.525);
+    border-radius: 20%;
+}
+.upcase{
+    text-transform: uppercase;
+}
+
+/* Style pour les boutons et les informations de contact */
+.info-garage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding:1rem;
+}
+
+/* Style pour l'icône de défilement */
+.icon-scroll {
+    position: absolute;
+    bottom: 6%;
+    left: 48%;
+    border: 2px solid #1D3557;
+    background-color: var(--color-second);
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-scroll a {
+    text-decoration: none;
+    color: var(--color-second);
+}
+
+/* Style pour les listes à puces des horaires */
+.hour ul {
+    padding: 5px;
+}
+
+/* Style section a propos */
+.a-propos {
+    padding: 0.5rem;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.cover-introduction {
+    margin-bottom: 2rem;
+}
+
+.cover-text {
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    order:1
+}
+
+/* Style section services */
+.grp-service {
+    margin: 1rem;
+    border: 3px solid var(--color-second);
+    background-color: #1d35573f;
+    color: var(--color-four);
+    font-weight: 300;
+    border-radius: 5px;
+}
+
+.text-info {
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.service-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+.card-service {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 3px solid var(--color-first);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.card-service .btn-home{
+    align-self: center;
+    text-align: center;
+}
+
+.card-service img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    padding: 1rem;
+    object-position: center;
+}
+
+.card-service h3 {
+    background-color: var(--color-four);
+    padding: 0.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.container-texts {
+    margin: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    justify-content: space-between;
+    flex-grow: 2;
+}
+
+.list-ok {
+    margin-top: 15px;
+    list-style: circle;
+}
+
+/* Style du online Avis */
+.online {
+    background: linear-gradient(180deg, #1D3557 0% 50%, #F1FAEE 50% 100%);
+}
+
+.online-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 4rem 4rem;
+    background: linear-gradient(90deg, #457B9D, #ffb800);
+}
+
+.btn-avis {
+    align-self: flex-end;
+}
+
+.cards-content {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    gap:1rem;
+    overflow-x: auto;
+}
+
+.avis-content {
+    background-color: rgba(222, 224, 212, 0.729);
+    width: 45%;
+    height: 100px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.pag-btn {
+    align-self: center;
+    display: flex;
+    gap: 5rem;
+}
+/*Etoiles*/
+.yellowStars {
+    color: var(--color-five);
+  }
+  .empty{
+    color: rgba(128, 128, 128, 0.849);
+  }
+
+
+/*STYLE POPPING*/
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 801px) {
+    /* STYLE RESPONSIVE BACKGROUND VIDEO */
+
+    #video-background {
+        height: 85%;
+        opacity: 0.6;
+    }
+    .main-contain {
+        height: 90vh;
+        width: auto;
+        padding-bottom: 56.25%; /* Ratio 16:9 pour la vidéo (9 / 16 * 100) */
+    }
+    .title-first {
+        font-size: 25px top 10;
+    }
+    .content-text {
+        margin: 3rem 0 0 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .description {
+        font-size: small;
+        width: 350px;
+        margin: 0 0.5rem 1rem 2rem;
+        border-radius: 10%;
+        padding: 0;
+    }
+    .info-garage {
+        top: 60%;
+        gap: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        flex-direction: column;
+    }
+    .btn-tel{
+        order:2;
+    }
+    .btn-adr{
+        order:3;
+    }
+    .hour{
+        order:1;
+    }
+    .hour li {
+        font-size: small;
+        text-align: center;
+    }
+
+    .btn-contact {
+        padding: 20px;
+        border-radius: 30%;
+        font-size: small;
+    }
+    .icon-scroll {
+        display: none;
+    }
+    .a-propos {
+        flex-direction: column;
+    }
+    .cover-text{
+        order:0;
+    }
+    .image-office {
+        width: 100%;
+        flex-shrink: 0;
+        height: auto;
+        margin: 0 0 1px;
+    }
+
+    .service-content {
+        flex-direction: column;
+    }
+
+    .online-content{
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .online-content h2{
+        order:1
+    }
+    .cards-content{
+        flex-direction: column;
+        align-items: center;
+        gap:0.5rem;
+        order:2;
+    }
+
+    .avis-content{
+        width: 100%;
+        height: auto;
+      
+    }
+    .pag-btn{
+        order: 3;
+    }
+    .online-content .btn-avis{
+        order: 4;
+        align-self: center;
+   }
+
+   .popup-content {
+    padding: 10px;
+   }
+}
+

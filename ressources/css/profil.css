@@ -1,0 +1,372 @@
+body {
+  overflow-x: hidden;
+  margin:1rem;
+}
+
+#retour-en-haut {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#retour-en-haut:hover {
+  background-color: #0056b3;
+}
+input{
+  line-height: 40px;
+  text-align: center;
+}
+.inputid{
+  width: 2rem;
+}
+.head-profil{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+    margin-bottom: 3rem;
+    padding: 0.5rem;
+    border:2px double dodgerblue;
+}
+.logo {
+  width: 8rem;
+  height:auto;
+  margin-left: 2rem;
+  object-fit: cover;
+}
+h1 {
+  font-size: x-large;
+  color: dodgerblue;
+  text-align: center;
+  font-weight: 700;
+
+}
+.head-annonce{
+  display: flex;
+  flex-direction: column;
+
+}
+.head-profil h2 {
+    margin-right: 10px; 
+}
+
+.sidebar{
+  background-color: rgba(127, 255, 212, 0.639);
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+
+}
+
+.section{
+  /* Limitez la largeur de certains éléments individuels */
+.section {
+  max-width: 100%;
+}
+}
+.btn-home {
+  position: relative;
+  padding: 1.4rem 4.2rem;
+  font-size: 1rem;
+  color: cornflowerblue;;
+  text-transform: uppercase;
+  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  cursor: pointer;
+}
+
+.btn-home:before, .btn-home:after {
+  content: '';
+  position: absolute;
+  transition: inherit;
+  z-index: -1;
+}
+
+.btn-home:hover {
+  color: cornflowerblue;;
+  transition-delay: .5s;
+}
+
+.btn-home:hover:before {
+  transition-delay: 0s;
+}
+
+.btn-home:hover:after {
+  background: cornflowerblue;;
+  transition-delay: .35s;
+}
+.btn-road:before {
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 0;
+  border: 2px solid cornflowerblue;
+  border-left: 0;
+  border-right: 0;
+}
+
+.btn-road:after {
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  background: linear-gradient(to top, cornflowerblue 0%, rgb(100, 111, 237) 20%);
+}
+
+.btn-road:hover:before {
+  left: 0;
+  width: 100%;
+}
+
+.btn-road:hover:after {
+  top: 0;
+  height: 100%;
+}
+.info-garage{
+  display: flex;
+  flex-direction: row;
+  gap:1rem;
+
+}
+
+.position1{
+  order: 1;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+}
+.info-garage h3{
+  display: inline;
+}
+.garage{
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  gap:1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  background-color: #6494ed63;
+}
+
+#info-salaries{
+  background-color: #5b81aa63;
+ margin-left: 2rem;
+}
+.countmess  {
+  color: red;
+  font-size: large;
+  border: 1px solid red;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  margin:1rem;
+  padding: 0.1rem;
+
+} 
+.delete{
+  background-color:whitesmoke;
+  color: red;
+  font-weight: 400;
+}
+.adm-gestion{
+display: flex;
+flex-direction: column;
+width: 10rem;
+}
+
+.createbtn{
+  background-color:whitesmoke;
+  color: cornflowerblue;
+  font-weight: 400;
+}
+.changebtn{
+  background-color:cornflowerblue ;
+  color: white;
+  border: 1px solid #1D3557;
+  border-radius: 30%;
+  padding:1rem;
+}
+.empty{
+  border: none;
+}
+.save{
+  background-color:whitesmoke;
+  color: rgb(54, 134, 71);
+  font-weight: 400;
+}
+.imagecar{
+  width: 100px;
+}
+.catalogue{
+  display: flex;
+  margin-bottom:2rem;
+  gap:1rem;
+  margin-top: 3rem;
+}
+article{
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  border: 2px solid #6495ed;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+}
+.horaires{
+  width: 10rem;
+  background-color: aqua;
+}
+table {
+  border: medium solid #6495ed;
+  border-collapse: collapse;
+  width: 50%;
+  max-width: 100px;
+  }
+  th {
+  font-family: monospace;
+  border: thin solid #6495ed;
+  width: 10%;
+  padding: 1rem;
+  background-color: #D0E3FA;
+  background-image: url(sky.jpg);
+  }
+  td {
+  font-family: sans-serif;
+  border: thin solid #6495ed;
+  width: 10%;
+  padding: 1rem;
+  text-align: center;
+  background-color: #ffffff;
+  }
+ 
+  .tdlarge{
+    width: 50%;
+  }
+
+
+  .avis{
+    display: block;
+
+    align-items: center;
+    border:2px solid #1D3557;
+  margin-bottom: 2rem;
+  width: 30%;
+  }
+  .carte{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:2rem;
+    border: 3px solid #6495ed;
+    border-radius:20%;
+    width: 50%;
+    margin:1rem;
+    padding: 1rem;
+
+  }
+  .btnavis{
+    display: flex;
+    margin-left:3rem;
+    gap:2rem
+  }
+.servicecarte{
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+  /* Footer styles */
+.footer {
+  padding: 10px;
+  background-color: #6495ed;;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Style pour la section avis */
+#avis {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style pour le formulaire */
+.formulaire {
+  text-align: center;
+}
+
+/* Style pour les avis */
+.avis {
+
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc; /* Ajout de la bordure */
+  border-radius: 5px;
+  margin-top: 20px;
+
+}
+
+/* Style pour les titres des avis */
+h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+/* Style pour les notes */
+p.note {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Style pour le texte de l'avis */
+p.avis-texte {
+  margin-bottom: 10px;
+}
+
+/* Style pour les boutons publier et supprimer */
+input.modifier, input.delete {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* Style pour le message sur le nombre d'avis */
+p.position1 {
+  font-size: 16px;
+  color: #888;
+  margin-top: 10px;
+}
+@media screen and (max-width: 801px) {
+    .head-profil {
+      /* Nouveaux styles pour les écrans mobiles */
+      flex-direction: column; /* Par exemple, changer la direction de flex en colonne */
+      align-items: flex-start; /* Ajuster l'alignement */
+      padding: 1rem; /* Ajuster la marge intérieure */
+    }
+
+    .logo {
+      /* Styles spécifiques aux écrans mobiles */
+      margin: 0 auto; /* Centrer le logo */
+    }
+}

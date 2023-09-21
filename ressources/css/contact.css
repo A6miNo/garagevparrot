@@ -1,0 +1,44 @@
+/* Style section a propos */
+.a-propos {
+    padding: 0.5rem;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.cover-introduction {
+    margin-bottom: 2rem;
+}
+
+.cover-text {
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    order:1
+}
+.image-office {
+    width: 45%;
+    flex-shrink: 0;
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+    margin: 2rem;
+    border-radius: 10px 50px 50px 0;
+  
+  }
+@media screen and (max-width: 801px) {
+.a-propos {
+    flex-direction: column;
+}
+.image-office {
+    order:2;
+    flex-shrink: none;
+    width: 90%;
+   
+}
+}
