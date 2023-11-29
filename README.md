@@ -1,5 +1,5 @@
 # garagevparrot
-ECF Garage V.PARROT
+Garage V.PARROT
 I -- Installation de l'application en local:
 Cette application n'est actuellement pas déployée sur internet. Pour l'ouvrir il vous faut en prérequis installer un serveur web local sur votre ordinateur. WAMP pour les systemes d'exploitation Windows.
 
