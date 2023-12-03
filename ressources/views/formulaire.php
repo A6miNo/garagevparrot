@@ -55,30 +55,20 @@ $product = $bdd->query('SELECT * FROM voitures');
                     }
                     ?>
                 </select>
-            <p>
 
-            </p>
             <div id="refDiv">
                 <select id="ref">
                     <?php
-
                     if ($_SERVER['PHP_SELF'] !== '/fiche.php') {
-
                         echo '<option value=""> <span class="light">Merci de préciser la réference</span></option>';
                     }
-                    ?>
-                    <?php
-
                     if ($_SERVER['PHP_SELF'] == '/fiche.php') {
-
                         echo '<option>' . htmlentities($article['id']) . 'XXX' . htmlentities($article['modele']) . '</option>';
                     } else {
                         while ($cars = $product->fetch()) {
                             echo '<option>' . $cars['id'] . 'XXX' . $cars['modele'] . '</option>';
                         }
                     }
-
-
                     ?>
                 </select>
             </div>

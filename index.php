@@ -19,11 +19,11 @@ require __DIR__ . '/ressources/config/menu.php';
     <meta name="description" content=<?= $mainMenu[$currentPage]['meta_description'] ?>>
     <link rel="shortcut icon" type="image/x-icon" href="../ressources/asset/lib/icone-removebg-preview.png">
     <title><?= $mainMenu[$currentPage]['head_title'] ?></title>
+    <!-- Styles Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy9+5BRx6Py5Jg6L/jRUssvpeBR/DFFXL" crossorigin="anonymous">
+
+
     <!--Liaison avec fichier style-->
-
-
-
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
@@ -45,8 +45,6 @@ $infos = $society->fetch();
 $annonce = $bdd->query('SELECT * FROM annonce');
 $adv = $annonce->fetch();
 
-//$schedule = $bdd->query('SELECT * FROM horaires');
-//$time = $schedule->fetch();
 $mysqli = new mysqli("localhost", "root", "", "garage_v_parrot");
 $mysqli->set_charset("utf8");
 $schedule = 'SELECT * FROM horaires';
@@ -57,8 +55,6 @@ $notes->execute();
 
 
 ?>
-
-
 
 
 <body>
@@ -102,8 +98,9 @@ $notes->execute();
             </div>
 
             <div class="icon-scroll">
+
                 <a href="#a-propos">
-                    <img src="/ressources/asset/lib/arrow-drop-down-line.png" alt="Cliquez ici pour accéder à la section">
+                    <img src="./asset/image/arrow-drop-down-line.png" alt="Cliquez ici pour accéder à la section">
                 </a>
             </div>
         </div>
@@ -130,7 +127,6 @@ $notes->execute();
                     <img src="./asset/image/auto-repair-g9ea5d1564_640.jpg" alt="image réparation voiture">
                     <div class="container-texts column">
                         <h3>Réparation</h3>
-
                         <a href="/garage.php" class="btn-home btn-road">Prendre RDV</a>
                     </div>
                 </div>
@@ -138,7 +134,6 @@ $notes->execute();
                     <img src="./asset/image/photo entretien.jpg" alt="image entretien voiture">
                     <div class="container-texts">
                         <h3>Entretien</h3>
-
                         <a href="/garage.php#id-form" class="btn-home btn-road">Prendre RDV</a>
                     </div>
                 </div>
@@ -146,8 +141,6 @@ $notes->execute();
                     <img src="./asset/image/pre-owned-vehicles-6893760_1280.jpg" alt="image parc automobile">
                     <div class="container-texts">
                         <h3>Vente de véhicules d'occasion</h3>
-
-
                         <a href="/catalogue-occasion.php" class="btn-home btn-road">Découvrir</a>
                     </div>
                 </div>
@@ -167,7 +160,7 @@ $notes->execute();
     <!--Start Avis online -->
     <section class="online">
         <div class="flux online-content">
-            <a class="btn btn-avis popavis">voir tous les avis</a>
+            <a class="btn btn-avis" data-toggle="modal" data-target="#avisModal">voir tous les avis</a>
             <h2>Avis des clients</h2>
             <div class="cards-content">
 
@@ -178,14 +171,28 @@ $notes->execute();
 
     </section>
 
-    <div class="popup-overlay">
-        <div class="popup-content">
-            <button class="close-button">fermer</button>
-            <?php
-            $notes = $bdd->query('SELECT * FROM avis WHERE statut = "Publié" ORDER BY id ASC');;
-            $notes->execute();
-            include __DIR__ . '/ressources/config/config_avis.php'
-            ?>
+    <!-- Modal -->
+    <div class="modal hide fade flux" id="avisModal" tabindex="-1" role="dialog" aria-labelledby="avisModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content flex col wrap bg-primary">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="avisModalLabel">Les avis</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Contenu de la modal -->
+                    <?php
+                    $notes = $bdd->query('SELECT * FROM avis WHERE statut = "Publié" ORDER BY id ASC');;
+                    $notes->execute();
+                    include __DIR__ . '/ressources/config/config_avis.php'
+                    ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-avis" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -194,7 +201,11 @@ $notes->execute();
     <?php
     require_once __DIR__ . '/ressources/views/footer.php';
     ?>
-
+    <!-- Liaison avec Bootstrap JS (nécessaire pour le fonctionnement des modales) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--Liaison JS -->
     <script src="./ressources/js/main.js"> </script>
     <script src="./ressources/js/video.js"> </script>
     <script src="./ressources/js/nav.js"></script>

@@ -49,10 +49,11 @@ $message = $form->fetch();
 
 
 //HORAIRES\\
+/*
 //pdo
 $schedulepdo = $bdd->query('SELECT * FROM horaires');
 $timepdo = $schedulepdo->fetch();
-
+*/
 
 
 // mysql
@@ -67,7 +68,8 @@ $sqlhour = "SELECT id, jour,
             SUBSTRING(heure_fermeture_pm, 1, 5) AS heure_fermeture_pm,
             statut
             FROM horaires";
-$result = $mysqli->query($sqlhour);
+$result = $mysqli->query($sqlhour); //
+
 
 //fonction count
 function getTableObjectCount($bdd, $table_name)

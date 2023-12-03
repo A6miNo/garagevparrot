@@ -31,6 +31,19 @@
     $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
     //Connection à la bdd
     require_once 'C:\wamp64\www\garagevparrot\configbdd.php';
+
+    // Vérifier si le formulaire a été soumis
+    if (isset($_POST['save'])) {
+        // Traitement du formulaire ici (insertion en base de données, etc.)
+
+        // Stocker le message de remerciement dans une variable de session
+        $_SESSION['message'] = "Merci pour votre contribution!";
+
+        // Rediriger l'utilisateur vers une autre page ou recharger la page pour éviter le renvoi du formulaire par actualisation
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
+    }
+
     ?>
 </head>
 

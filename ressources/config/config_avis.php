@@ -16,7 +16,7 @@
         }
         echo '</div>';
 
-        echo '</div></li>';
+        echo '</div>';
     }
 
     ?>

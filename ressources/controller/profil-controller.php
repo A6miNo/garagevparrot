@@ -85,13 +85,13 @@ if (isset($_POST['deletecar'])) {
 //DELETE AVIS\\
 if (isset($_POST['deleteavis'])) {
     $deleteAvis = $bdd->prepare('DELETE FROM avis WHERE id = :avis_id');
-    $deleteAvis->execute(array('avis_id' => $_POST['id']));
-    header('Location:/profil.php');
+    $deleteAvis->execute(array('avis_id' => $_POST['deleteavis']));
+    header('Location: /profil.php');
 }
 
 
 //UPDATE AVIS\\
 if (isset($_POST['publie'])) {
     $editAvis = $bdd->prepare('UPDATE `avis` SET `statut` = "Publié" WHERE `avis`.`id` = :idavp;');
-    $editAvis->execute(array('idavp' => $_POST['id']));
+    $editAvis->execute(array('idavp' => $_POST['publie']));
 }

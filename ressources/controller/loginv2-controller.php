@@ -3,7 +3,7 @@ session_start();
 
 // Inclure le fichier de configuration de la base de données
 require_once 'C:\wamp64\www\garagevparrot\configbdd.php';
-if (isset($_POST["loginUser"])) { //ajout le 19-09
+if (isset($_POST["loginUser"])) {
     if (isset($_POST['email']) && isset($_POST['password'])) {
         $email = htmlspecialchars($_POST['email']);
         $password = $_POST['password'];
@@ -12,7 +12,7 @@ if (isset($_POST["loginUser"])) { //ajout le 19-09
 
         // Requête SQL pour vérifier si l'utilisateur existe avec l'email donné
         $check = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = ?');
-        $check->bindValue(":email", $email, PDO::PARAM_STR); //ajout le 19-09
+        $check->bindValue(":email", $email, PDO::PARAM_STR);
         $check->execute([$email]);
         $user = $check->fetch();
 

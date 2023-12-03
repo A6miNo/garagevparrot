@@ -103,8 +103,8 @@ $cars = $product->fetch();
                             <!-- Options de la liste déroulante pour les modèles -->
                         </select>
                     </div>
-                    <!-- A METTRE LORS DU UPDATE 
-                   Caractéristiques 
+                    <!-- A METTRE LORS DU UPDATE -->
+                    Caractéristiques
                     <div class="form-title separator">Caractéristiques</div>
                     <div class="searchDiv column">
                         <label for="annee">Année</label>
@@ -142,7 +142,7 @@ $cars = $product->fetch();
                                 </fieldset>
                             </div>
                         </div>
-                    </div>-->
+                    </div>
 
                     <!-- Prix -->
                     <div class="form-title separator">Prix</div>
