@@ -21,7 +21,9 @@ require __DIR__ . '/ressources/config/menu.php';
     <title><?= $mainMenu[$currentPage]['head_title'] ?></title>
     <!-- Styles Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy9+5BRx6Py5Jg6L/jRUssvpeBR/DFFXL" crossorigin="anonymous">
-
+    <!-- Ajouter le lien vers Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <!--Liaison avec fichier style-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -203,8 +205,12 @@ $notes->execute();
     ?>
     <!-- Liaison avec Bootstrap JS (nécessaire pour le fonctionnement des modales) -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- maj <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- le script Boostrapt -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <!--Liaison JS -->
     <script src="./ressources/js/main.js"> </script>
     <script src="./ressources/js/video.js"> </script>
