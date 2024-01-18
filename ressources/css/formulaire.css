@@ -1,11 +1,11 @@
 /* Améliorer l'apparence du conteneur .form-demande */
 .form-demande {
     max-width: 80%;
-    margin: 5rem 5rem 2rem 7rem !important ;
+    margin: 5rem 5rem ;
     padding: 5rem;
     border: 4px solid #A8DADC ;
     border-radius: 10px;
-    background: url('/asset/image/garage-geaa0faf30_640.jpg') center/cover no-repeat rgba(29, 53, 87, 0.126);
+    background: url('../asset/image/garage-geaa0faf30_640.jpg') center/cover no-repeat rgba(29, 53, 87, 0.126);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     color: #1D3557; 
 }
@@ -96,7 +96,7 @@ textarea{
     background-color: #4A90E2;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 801px) {
     .form-demande {
         padding: 1rem; 
         margin:  auto; 

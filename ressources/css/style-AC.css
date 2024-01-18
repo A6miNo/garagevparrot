@@ -339,7 +339,7 @@ footer{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 0.5fr 1fr 0.5fr;
-  background-image: linear-gradient(-20deg, var(--color-fisrt) 0%, var(--color-four) 30%, var(--cerulean) 100%);
+  background-image: linear-gradient(-20deg, var(--honeydew) 0%, var(--non-photo-blue) 30%, var(--cerulean) 100%);
 }
 
 .logo-grid{
@@ -449,7 +449,7 @@ text-decoration: underline;
 }
 
 /* Écran mobile */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 801px) {
   * {
       padding: 0;
       margin: 0;
@@ -462,7 +462,7 @@ text-decoration: underline;
 
   /* Navbar Burger Responsive */
   .logo {
-      width: 37%;
+      width: 45%;
   }
   .navbar {
       height: 24vh;

@@ -31,7 +31,7 @@
     border-radius: 10px 50px 50px 0;
   
   }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 801px) {
 .a-propos {
     flex-direction: column;
 }

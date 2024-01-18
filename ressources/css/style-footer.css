@@ -123,7 +123,7 @@ color: brown;
 text-decoration: underline;
 }
 /* Écran mobile */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 801px) {
     footer{
         display: flex;
         flex-direction: column;

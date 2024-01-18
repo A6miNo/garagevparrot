@@ -23,7 +23,7 @@
   border: 3px solid var(--color-second);
   background-color: #1d35573f;
   color: var(--color-four);
-  font-weight: 700;
+  font-weight: 300;
   border-radius: 5px;
 }
 
@@ -91,7 +91,7 @@
   list-style: circle;
 }
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 801px) {
     .main-garage{
       max-width: 100%;
       margin: 0 ;
