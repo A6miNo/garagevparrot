@@ -91,7 +91,7 @@
   list-style: circle;
 }
   
-  @media screen and (max-width: 801px) {
+  @media screen and (max-width: 768px) {
     .main-garage{
       max-width: 100%;
       margin: 0 ;

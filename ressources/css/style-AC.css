@@ -449,7 +449,7 @@ text-decoration: underline;
 }
 
 /* Écran mobile */
-@media screen and (max-width: 801px) {
+@media screen and (max-width: 768px) {
   * {
       padding: 0;
       margin: 0;

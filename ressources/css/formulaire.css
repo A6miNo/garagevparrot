@@ -96,7 +96,7 @@ textarea{
     background-color: #4A90E2;
 }
 
-@media screen and (max-width: 801px) {
+@media screen and (max-width: 768px) {
     .form-demande {
         padding: 1rem; 
         margin:  auto; 
