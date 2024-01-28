@@ -6,9 +6,10 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         // Établir une connexion à la base de données
-        require_once('C:\wamp64\www\garagevparrot\configbdd.php');
+        require_once '../../configbdd.php';
 
         // Valider et récupérer les données soumises dans le formulaire
+        $genre = isset($_POST['genre']) ? $_POST['genre'] : '';
         $firstName = isset($_POST['user-name']) ? $_POST['user-name'] : '';
         $lastName = isset($_POST['firstname']) ? $_POST['firstname'] : '';
         $email = isset($_POST['email']) ? $_POST['email'] : '';
@@ -36,11 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Vérification de l'input idinput par rapport à l'id random (ajoutez votre propre logique ici)
 
         // Préparer la requête SQL d'insertion
-        $insertQuery = "INSERT INTO formulaire (firstname, lastname, email, phone, objet, ref, contenu) VALUES (:firstName, :lastName, :email, :phone, :object, :ref, :contenu)";
+        $insertQuery = "INSERT INTO formulaire (genre,firstname, lastname, email, phone, objet, ref, contenu) VALUES (:genre, :firstName, :lastName, :email, :phone, :object, :ref, :contenu)";
 
         // Préparer et exécuter la requête SQL à l'aide de PDO
         $stmt = $bdd->prepare($insertQuery);
 
+        $stmt->bindParam(':genre', $genre);
         $stmt->bindParam(':firstName', $firstName);
         $stmt->bindParam(':lastName', $lastName);
         $stmt->bindParam(':email', $email);

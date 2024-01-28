@@ -3,11 +3,11 @@
 session_start();
 
 // Inclure le fichier de configuration de la base de données
-require_once('C:\wamp64\www\garagevparrot\configbdd.php');
+require_once '../../configbdd.php';
 
 $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
 
-if (isset($_POST["createUser"])) { //ajout le 19-09
+if (isset($_POST["createUser"])) {
     if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['tel']) && !empty($_POST['password']) && !empty($_POST['role'])) {
         // Patch XSS (sécurité)
         $name = htmlspecialchars($_POST['name']);
@@ -18,7 +18,7 @@ if (isset($_POST["createUser"])) { //ajout le 19-09
 
         // Vérifier si l'utilisateur existe déjà pour éviter les doublons
         $check = $bdd->prepare('SELECT pseudo, email, phone, password FROM utilisateurs WHERE email = ?');
-        $check->bindValue(":email", $email, PDO::PARAM_STR); //ajout le 19-09
+        $check->bindValue(":email", $email, PDO::PARAM_STR);
         $check->execute(array($email));
         $verif_user = $check->fetch(PDO::FETCH_ASSOC);
         $row =  $check->rowCount();

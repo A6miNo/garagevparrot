@@ -3,7 +3,7 @@
 session_start();
 $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
 //Connection à la bdd
-require_once 'C:\wamp64\www\garagevparrot\configbdd.php';
+require_once '../../configbdd.php';
 
 if (isset($_GET['marque'])) {
     $selectedBrand = htmlentities($_GET['marque']);

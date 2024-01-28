@@ -5,11 +5,11 @@ $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
 //Connection à la bdd
 require_once 'configbdd.php';
 require __DIR__ . '/ressources/config/menu.php';
-
-//include __DIR__ . '/ressources/config/config_profil.php';
+include __DIR__ . '/ressources/config/config_profil.php';
 ?>
 
-
+<!DOCTYPE html>
+<html lang="fr">
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,15 +19,23 @@ require __DIR__ . '/ressources/config/menu.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Donner du SEO-->
-
-    <link rel="shortcut icon" type="image/x-icon" href="../asset/image/icone-removebg-preview.png">
+    <meta name="keywords" content=<?= $mainMenu[$currentPage]['meta_keywords'] ?>>
+    <meta name="description" content=<?= $mainMenu[$currentPage]['meta_description'] ?>>
+    <link rel="shortcut icon" type="image/x-icon" href="/asset/image/icone-removebg-preview.png">
     <title><?= $mainMenu[$currentPage]['head_title'] ?></title>
     <!--Liaison avec fichier style-->
+
+
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="../ressources/css/style-AC.css">
     <link rel="stylesheet" type="text/css" href="../ressources/css/catalogue-style.css">
+
+
     <script src="https://kit.fontawesome.com/609ebaf712.js" crossorigin="anonymous"></script>
 
 
@@ -81,15 +89,6 @@ $cars = $product->fetch();
             </div>
             <div class="searchDiv">
                 <form id="filter-form">
-
-                    <!-- info et btn recherche -->
-                    <div class="form-title separator">Rechercher</div>
-                    <div class="info-filter">
-                        <p> <span id="nbsearch"></span></p>
-                        <button class="btn btn-filter" type="submit" id="applyFilters">Filtrer</button>
-                        <button class="btn btn-filter" type="submit" id="reset-filters">Réinitialiser</button>
-                    </div>
-                    <br>
                     <!-- Marques / Modèles -->
                     <div class="form-title">Marques / Modèles</div>
                     <div class="searchDiv">
@@ -100,21 +99,12 @@ $cars = $product->fetch();
                         </select>
                         <label for="modele">Modèles</label>
                         <select id="modele" name="modele">
-                            <option value="all">choisissez d'abord une marque</option>
+                            <option value="all">Toutes les modèles</option>
                             <!-- Options de la liste déroulante pour les modèles -->
                         </select>
                     </div>
+                    <!-- A METTRE LORS DU UPDATE -->
 
-                    <!-- Prix -->
-                    <div class="form-title separator">Prix</div>
-                    <div class="searchDiv">
-                        <div class="price-group">
-                            <label for="minPrice">Prix minimum:</label>
-                            <input type="number" id="minPrice" name="minPrice" min=0 placeholder="Min" />
-                            <label for="maxPrice">Prix maximum:</label>
-                            <input type="number" id="maxPrice" name="maxPrice" max=999999, placeholder="Max" />
-                        </div>
-                    </div>
                     <div class="form-title separator">Caractéristiques</div>
                     <div class="searchDiv column">
                         <label for="annee">Année</label>
@@ -124,21 +114,21 @@ $cars = $product->fetch();
                         </div>
                         <label for="km">Kilométrage </label>
                         <div class="input-group row">
-                            <input type="number" id="minKm" name="minKm" placeholder=" km min" min=0>
-                            <input type="number" id="maxKm" name="maxKm" placeholder=" km max" max=9999999999>
+                            <input type="number" id="km-min" name="km-min" placeholder=" km min">
+                            <input type="number" id="km-max" name="km-max" placeholder=" km max">
                         </div>
-                        <!-- A METTRE LORS DU UPDATE 
+
                         <div class="fieldset-group column">
                             <div class="input-group row">
                                 <fieldset>
                                     <legend>Energie</legend>
-                                    <input type="checkbox" id="essence" class="energie-checkbox" name="energie" value="essence">
+                                    <input type="checkbox" id="essence" name="energie" value="essence">
                                     <label>Essence</label>
-                                    <input type="checkbox" id="diesel" class="energie-checkbox" name="energie" value="diesel">
+                                    <input type="checkbox" id="diesel" name="energie" value="diesel">
                                     <label>Diesel</label>
-                                    <input type="checkbox" id="hybride" class="energie-checkbox" name="energie" value="hybride">
+                                    <input type="checkbox" id="hybride" name="energie" value="hybride">
                                     <label>Hybride</label>
-                                    <input type="checkbox" id="electrique" class="energie-checkbox" name="energie" value="electrique">
+                                    <input type="checkbox" id="electrique" name="energie" value="electrique">
                                     <label>Electrique</label>
                                 </fieldset>
                             </div>
@@ -152,30 +142,44 @@ $cars = $product->fetch();
                                 </fieldset>
                             </div>
                         </div>
-                        -->
+                    </div>
+
+                    <!-- Prix -->
+                    <div class="form-title separator">Prix</div>
+                    <div class="searchDiv">
+                        <div class="price-group">
+                            <label for="minPrice">Prix minimum:</label>
+                            <input type="number" id="minPrice" name="minPrice" placeholder="Min" />
+                            <label for="maxPrice">Prix maximum:</label>
+                            <input type="number" id="maxPrice" name="maxPrice" placeholder="Max" />
+                        </div>
                     </div>
 
 
-
-
-                </form>
-            </div>
-        </section>
-        <section>
-            <div class="tri">
-                <div>
+                    <!-- info et btn recherche -->
+                    <div class="form-title separator">Rechercher</div>
+                    <div class="info-filter">
+                        <p> <span id="nbsearch"></span>annonces</p>
+                        <button class="btn btn-filter" type="submit" id="applyFilters">Filtrer</button>
+                        <button class="btn btn-filter" type="submit" id="reset-filters">Réinitialiser</button>
+                    </div>
+                    <br>
                     <label for="cars">Trier par:</label>
                     <select name="tri" id="tri">
                         <option disabled selected value> </option>
                         <option value="gr_up">par prix croissant</option>
                         <option value="gr_dw">par prix décroissant</option>
                     </select>
-                </div>
-                <p class="info"> </p>
+                </form>
             </div>
-
-
-            <div class="catalogue " id="listeVehicules"></div>
+        </section>
+        <section>
+            <?php
+            $table_name = "voitures";
+            $count = getTableObjectCount($bdd, $table_name);
+            echo "<p class=\"info\">Le nombre de véhicule à la vente est de : $count </p>";
+            ?>
+            <div class="catalogue " id="catalogue-card"></div>
         </section>
 
     </main>
@@ -184,16 +188,11 @@ $cars = $product->fetch();
     require_once __DIR__ . '/ressources/views/footer.php';
     ?>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="/ressources/js/ajax.js"></script>
-
     <script src="/ressources/js/openfiche.js"></script>
     <script src="/ressources/js/nav.js"></script>
 
-    <script>
-        console.log(' . json_encode($data) . ')
-    </script>
-    ?>
 </body>
 
 

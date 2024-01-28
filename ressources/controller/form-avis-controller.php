@@ -1,5 +1,5 @@
 <?php
-require_once('C:\wamp64\www\garagevparrot\configbdd.php');
+require_once '../../configbdd.php';
 
 session_start();
 

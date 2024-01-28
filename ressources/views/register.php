@@ -1,3 +1,5 @@
+<!--FORMULAIRE DE CREATION EMPLOYE-->
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -5,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/ressources/img/logo.png" />
+    <link rel="icon" type="image/x-icon" href="../../asset/image/icone-removebg-preview.png" />
     <link rel="stylesheet" href="../css/register.css">
     <title>Créer un compte</title>
 </head>
@@ -18,7 +20,7 @@
 
     <div class="center">
         <h1>Créer un nouveau collaborateur</h1>
-        <form action="../controller/register-controller.php" method="post" enctype="multipart/form-data">
+        <form action="../controller/registerUser-controller.php" method="post" enctype="multipart/form-data">
 
             <input type="radio" name="role" value="Administrateur">
             <label for="admin">Administrateur</label>
@@ -32,7 +34,7 @@
                 <label>Pseudo</label>
             </div>
             <div class="txt_field">
-                <input type="text" required name="email">
+                <input type="text" required name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                 <span></span>
                 <label>Email</label>
             </div>
@@ -46,11 +48,7 @@
                 <span></span>
                 <label>Numéro de téléphone</label>
             </div>
-            <!-- <div class="txt_field">
-        <input type="file" name="img" id="img">
-        <span></span>
-        <label>Votre image de profil (optionnel)</label>
-      </div> -->
+
             <input type="submit" value="Créer" name="createUser">
             <div class="signup_link">
             </div>

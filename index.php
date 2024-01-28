@@ -3,7 +3,7 @@
 session_start();
 $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
 //Connection à la bdd
-require_once 'C:\wamp64\www\garagevparrot\configbdd.php';
+require_once 'configbdd.php';
 
 require __DIR__ . '/ressources/config/menu.php';
 ?>
@@ -17,7 +17,7 @@ require __DIR__ . '/ressources/config/menu.php';
     <!-- Donner du SEO-->
     <meta name="keywords" content=<?= $mainMenu[$currentPage]['meta_keywords'] ?>>
     <meta name="description" content=<?= $mainMenu[$currentPage]['meta_description'] ?>>
-    <link rel="shortcut icon" type="image/x-icon" href="../ressources/asset/lib/icone-removebg-preview.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/asset/image/icone-removebg-preview.png">
     <title><?= $mainMenu[$currentPage]['head_title'] ?></title>
     <!-- Styles Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy9+5BRx6Py5Jg6L/jRUssvpeBR/DFFXL" crossorigin="anonymous">
@@ -172,7 +172,7 @@ $notes->execute();
     </section>
 
     <!-- Modal -->
-    <div class="modal hide fade flux" id="avisModal" tabindex="-1" role="dialog" aria-labelledby="avisModalLabel" aria-hidden="true">
+    <div class="modal hide fade flux" id="avisModal" tabindex="-1" role="dialog" aria-labelledby="avisModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog" role="document">
             <div class="modal-content flex col wrap bg-primary">
                 <div class="modal-header">
@@ -197,6 +197,9 @@ $notes->execute();
     </div>
 
     </div>
+
+
+
     <!--Start footer -->
     <?php
     require_once __DIR__ . '/ressources/views/footer.php';

@@ -1,3 +1,4 @@
+
 <?php
 
 //SOCIETE\\
@@ -18,8 +19,9 @@ $sqlavis = "SELECT COUNT(*) FROM avis";
 $result = $bdd->query($sqlavis);
 $countavis = $result->fetchColumn();
 
-$avis = $bdd->query('SELECT * FROM avis WHERE statut = "A valider"');;
+$avis = $bdd->query('SELECT * FROM avis WHERE statut = "A valider"');
 $avis->execute();
+
 
 
 //ANNONCE\\
@@ -42,11 +44,53 @@ $infos_users->execute(array($_SESSION['user']));
 $info = $infos_users->fetch();
 $role = htmlentities($info['role']);
 
+// Récupération du pseudo de l'utilisateur connecté
+$userID = isset($_SESSION['user']) ? $_SESSION['user'] : null;
+
+// Vérifier si l'utilisateur est connecté
+if ($userID) {
+    // Récupération des informations de l'utilisateur depuis la base de données
+    $getUserInfo = $bdd->prepare('SELECT role, pseudo FROM utilisateurs WHERE id = ?');
+    $getUserInfo->execute([$userID]);
+    $userInfo = $getUserInfo->fetch(PDO::FETCH_ASSOC);
+
+    if ($userInfo) {
+        $role = $userInfo['role'];
+        $pseudo = $userInfo['pseudo'];
+
+        // Construction du message personnalisé en fonction du rôle
+        $greeting = "Bonjour $pseudo";
+
+        $additionalMessage = '';
+
+        if ($role === 'Administrateur') {
+            $additionalMessage = "Vous avez des droits étendus.";
+        } else {
+            $additionalMessage = "Passez une bonne journée.";
+        }
+    } else {
+        header('Location: /connexion.php');
+        exit();
+    }
+} else {
+    header('Location: /connexion.php');
+    exit();
+}
+
 //MESSAGE\\
-$form = $bdd->query('SELECT * FROM formulaire');
-$message = $form->fetch();
+//MESSAGE
+$form = $bdd->query('SELECT * FROM formulaire WHERE etat= "A TRAITER"');
+
+// Réinitialiser le pointeur de résultats de $form
+$form->execute();
+$formRows = $form->fetchAll(PDO::FETCH_ASSOC);
 
 
+$formArchive = $bdd->query('SELECT * FROM formulaire WHERE etat= "ARCHIVE"');
+
+// Réinitialiser le pointeur de résultats de $formArchive
+$formArchive->execute();
+$rowsArchive = $formArchive->fetchAll();
 
 //HORAIRES\\
 /*
@@ -72,16 +116,28 @@ $result = $mysqli->query($sqlhour); //
 
 
 //fonction count
-function getTableObjectCount($bdd, $table_name)
+function getTableObjectCount($bdd, $table_name, $column = null, $value = null)
 {
 
+    // Construire la partie de la requête conditionnelle si des valeurs sont fournies
+    $condition = "";
+    if ($column !== null && $value !== null) {
+        $condition = " WHERE $column = :value";
+    }
 
-    // Exécuter la requête pour obtenir le nombre d'objets dans la table
-    $sql = "SELECT COUNT(*) FROM $table_name";
-    $result = $bdd->query($sql);
+    // Exécuter la requête pour obtenir le nombre d'objets dans la table avec éventuellement une condition
+    $sql = "SELECT COUNT(*) FROM $table_name$condition";
+    $stmt = $bdd->prepare($sql);
+
+    // Binder la valeur conditionnelle si elle est fournie
+    if ($column !== null && $value !== null) {
+        $stmt->bindParam(':value', $value);
+    }
+
+    $stmt->execute();
 
     // Récupérer le résultat
-    $count = $result->fetchColumn();
+    $count = $stmt->fetchColumn();
 
     // Retourner le nombre d'objets
     return $count;

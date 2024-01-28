@@ -1,19 +1,27 @@
 /* Améliorer l'apparence du conteneur .form-demande */
 .form-demande {
     max-width: 80%;
-    margin: 5rem 5rem ;
+    margin: 2rem 5rem 1rem 10rem;
     padding: 5rem;
     border: 4px solid #A8DADC ;
     border-radius: 10px;
-    background: url('../asset/image/garage-geaa0faf30_640.jpg') center/cover no-repeat rgba(29, 53, 87, 0.126);
+    background: url('../../asset/image/garage-geaa0faf30_640.jpg') center/cover no-repeat rgba(29, 53, 87, 0.126);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     color: #1D3557; 
 }
 .form-demande .cgu{
     align-items: center;
     justify-content: center;
+    background-color: #A8DADC;
 }
 
+.bold{
+    font-weight: 800;
+    font-size: 1rem;
+    color:var(--color-second);
+    display: inline-block;
+    margin-right: 5rem;
+}
 fieldset{
     background-color: rgba(168, 218, 220, 0.37);
     margin-bottom: 1rem;
@@ -71,19 +79,24 @@ textarea{
 
 /* Styler l'entrée de texte aléatoire et la section du défi */
 .capchat{
+    flex-wrap: wrap;
     background-color: #cccccc1e;
+    margin-top: 2rem;
+    display: flex;
+    gap: 20px;
 }
 .form-demande #random {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight:700;
-    margin-bottom: 1rem;
+    border-radius: 30%;
     padding: 1rem;
     color: #4A90E2;
     background-color: #fff;
+  
 }
 
 .form-demande #input {
-    width: 50%;
+    width: 30%;
     padding:1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -96,11 +109,11 @@ textarea{
     background-color: #4A90E2;
 }
 
-@media screen and (max-width: 801px) {
+@media screen and (max-width: 768px) {
     .form-demande {
         padding: 1rem; 
         margin:  auto; 
-       
+           
     }
 
     /* Ajustements pour les labels */
@@ -131,9 +144,19 @@ textarea{
     }
 
     .form-demande #input {
-        width: 100%;
+        width: 90%;
     }
     .capchat #input{ 
         font-size: 0.6rem;
+    }
+    .form-demande #random {
+        font-size: 1rem;
+        padding: 0.1rem;
+        text-align: center;
+       
+    }
+    
+    .bold{
+        background-color: #ccc;
     }
 }

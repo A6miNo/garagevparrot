@@ -25,7 +25,18 @@
     border-radius: 5px; 
     list-style: none;
   }
-  
+  .info{
+    margin-right: 2rem;
+    text-align: end;
+    font-size: 20px;
+    font-weight: 700;
+    color:var(--color-first);
+  }
+
+  .tri{
+    display: flex;
+    justify-content: space-between;
+  }
   /*style sur le conteneur*/
   .container_catalogue {
     display: grid;
@@ -205,7 +216,7 @@ fieldset:hover{
     padding: 0.5rem;
     box-shadow: none;
     transition: box-shadow 0.4s ease-out;  
-    height:60rem;
+    height:auto;
 
 
     

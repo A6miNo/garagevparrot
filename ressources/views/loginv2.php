@@ -3,7 +3,7 @@
 session_start();
 
 //connection à la bdd
-require_once 'C:\wamp64\www\garagevparrot\configbdd.php';
+require_once '../../configbdd.php';
 
 
 $affich_users = $bdd->prepare('SELECT * FROM utilisateurs');

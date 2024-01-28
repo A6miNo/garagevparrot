@@ -3,7 +3,7 @@
 session_start();
 $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
 //Connection à la bdd
-require_once 'C:\wamp64\www\garagevparrot\configbdd.php';
+require_once 'configbdd.php';
 require __DIR__ . '/ressources/config/menu.php';
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ require __DIR__ . '/ressources/config/menu.php';
     <!-- Donner du SEO-->
     <meta name="keywords" content=<?= $mainMenu[$currentPage]['meta_keywords'] ?>>
     <meta name="description" content=<?= $mainMenu[$currentPage]['meta_description'] ?>>
-    <link rel="shortcut icon" type="image/x-icon" href="../ressources/asset/lib/icone-removebg-preview.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/asset/image/icone-removebg-preview.png">
     <title><?= $mainMenu[$currentPage]['head_title'] ?></title>
 
 

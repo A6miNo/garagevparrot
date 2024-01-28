@@ -229,6 +229,7 @@ article{
   width: 10rem;
   background-color: aqua;
 }
+
 table {
   border: medium solid #6495ed;
   border-collapse: collapse;
@@ -357,7 +358,9 @@ p.position1 {
   color: #888;
   margin-top: 10px;
 }
-@media screen and (max-width: 801px) {
+
+
+@media screen and (max-width: 768px) {
     .head-profil {
       /* Nouveaux styles pour les écrans mobiles */
       flex-direction: column; /* Par exemple, changer la direction de flex en colonne */

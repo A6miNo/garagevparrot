@@ -21,5 +21,5 @@
         ?>
     </div>
 
-    <p class="text-center">Nombre d'avis dans la table <?php echo $countavis; ?> dont <?php echo $compteur; ?> en attente de traitement</p>
+    <p id="nbAvis" class="text-center">Nombre d'avis dans la table <?php echo $countavis; ?> dont <?php echo $compteur; ?> en attente de traitement</p>
 </form>

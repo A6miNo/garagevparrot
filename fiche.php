@@ -1,12 +1,12 @@
 <?php
 session_start();
-$_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
+//$_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
 //Connection à la bdd
-require_once 'C:\wamp64\www\garagevparrot\configbdd.php';
+require_once 'configbdd.php';
 
 require __DIR__ . '/ressources/config/menu.php';
 require __DIR__ . '/ressources/config/function.php';
-$mainMenu["fiche.php"] = ["menu_title" => "Voiture Introuvable", "head_title" => "Voiture Introuvable", "meta_description" => "Voiture Introuvable", "meta_keywords" => "Voiture Introuvable, article ", "navclass" => "", "exclude" => true];
+//$mainMenu["fiche.php"] = ["menu_title" => "Voiture Introuvable", "head_title" => "Voiture Introuvable", "meta_description" => "Voiture Introuvable", "meta_keywords" => "Voiture Introuvable, article ", "navclass" => "", "exclude" => true];
 
 $error = false;
 if (isset($_GET['id'])) {
@@ -20,7 +20,6 @@ if (isset($_GET['id'])) {
 } else {;
     $error = true;
 }
-
 
 ?>
 

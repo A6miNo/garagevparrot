@@ -1,5 +1,5 @@
 <?php
-require_once('C:\wamp64\www\garagevparrot\configbdd.php');
+require_once '../../configbdd.php';
 
 session_start();
 
@@ -29,9 +29,36 @@ if (isset($_POST['savesociete'])) {
 //UPDATE HORAIRES\\
 if (isset($_POST['savehour'])) {
     try {
-        $editHourOuverturAm = $bdd->prepare('UPDATE horaires SET heure_ouverture_am = :heure_ouverture_am WHERE id=:id');
-        $editHourOuverturAm->execute(array('heure_ouverture_am' => $_POST['openam'], 'id' => $_POST['id']));
+        // Bouclez à travers les données et mettez à jour la base de données.
+        for ($i = 0; $i < count($_POST['id']); $i++) {
+            $id = $_POST['id'][$i];
+            $heure_ouverture_am = $_POST['heure_ouverture_am'][$i];
+            $heure_fermeture_am = $_POST['closeam'][$i];
+            $heure_ouverture_pm = $_POST['openpm'][$i];
+            $heure_fermeture_pm = $_POST['closepm'][$i];
+            $statut = $_POST['statut'][$i];
 
+            // Mise à jour de l'heure d'ouverture AM
+            $editHourOuverturAm = $bdd->prepare('UPDATE horaires SET heure_ouverture_am = :heure_ouverture_am WHERE id = :id');
+            $editHourOuverturAm->execute(array('heure_ouverture_am' => $heure_ouverture_am, 'id' => $id));
+            // Mise à jour de l'heure de fermeture AM
+            $editHourFermetureAm = $bdd->prepare('UPDATE horaires SET heure_fermeture_am = :heure_fermeture_am WHERE id = :id');
+            $editHourFermetureAm->execute(array('heure_fermeture_am' => $heure_fermeture_am, 'id' => $id));
+
+            // Mise à jour de l'heure d'ouverture PM
+            $editHourOuverturePm = $bdd->prepare('UPDATE horaires SET heure_ouverture_pm = :heure_ouverture_pm WHERE id = :id');
+            $editHourOuverturePm->execute(array('heure_ouverture_pm' => $heure_ouverture_pm, 'id' => $id));
+
+            // Mise à jour de l'heure de fermeture PM
+            $editHourFermeturePm = $bdd->prepare('UPDATE horaires SET heure_fermeture_pm = :heure_fermeture_pm WHERE id = :id');
+            $editHourFermeturePm->execute(array('heure_fermeture_pm' => $heure_fermeture_pm, 'id' => $id));
+
+            // Mise à jour du statut
+            $editStatut = $bdd->prepare('UPDATE horaires SET statut = :statut WHERE id = :id');
+            $editStatut->execute(array('statut' => $statut, 'id' => $id));
+        }
+
+        // Redirigez l'utilisateur ou affichez un message de réussite.
         header('Location: /profil.php');
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
@@ -58,6 +85,18 @@ if (isset($_POST['savecar'])) {
     $editDescCar = $bdd->prepare('UPDATE voitures SET description = :description WHERE id = :id');
     $editDescCar->execute(array('description' => $_POST['description'], 'id' => $_POST['id']));
 
+    $editImg1 = $bdd->prepare('UPDATE voitures SET img_url_1 = :img_url_1 WHERE id = :id');
+    $editImg1->execute(array('img_url_1' => $_POST['img_url_1'], 'id' => $_POST['id']));
+
+    $editImg2 = $bdd->prepare('UPDATE voitures SET img_url_2 = :img_url_2 WHERE id = :id');
+    $editImg2->execute(array('img_url_2' => $_POST['img_url_2'], 'id' => $_POST['id']));
+
+    $editImg3 = $bdd->prepare('UPDATE voitures SET img_url_3 = :img_url_3 WHERE id = :id');
+    $editImg3->execute(array('img_url_3' => $_POST['img_url_3'], 'id' => $_POST['id']));
+
+    $editImg4 = $bdd->prepare('UPDATE voitures SET img_url_4 = :img_url_4 WHERE id = :id');
+    $editImg4->execute(array('img_url_4' => $_POST['img_url_4'], 'id' => $_POST['id']));
+
     header('Location:/profil.php');
 }
 
@@ -67,12 +106,36 @@ if (isset($_POST['deleteformulaire'])) {
     $deleteForm->execute(array('form_id' => $_POST['id']));
     header('Location:/profil.php');
 }
+//UPDATE STATUT FORMULAIRE\\
+if (isset($_POST['archiveformulaire'])) {
+    $updateForm = $bdd->prepare('UPDATE `formulaire` SET `etat` = "ARCHIVE" WHERE id = :form_id');
+    $updateForm->execute(array('form_id' => $_POST['id']));
+    header('Location:/profil.php');
+}
 
 //DELETE USER\\
 if (isset($_POST['deleteUser'])) {
     $deleteCar = $bdd->prepare('DELETE FROM utilisateurs WHERE id = :user_id');
     $deleteCar->execute(array('user_id' => $_POST['id']));
     header('Location:/profil.php');
+}
+//UPDATE USER\\
+if (isset($_POST['updateUser'])) {
+    $employeeId = isset($_POST['employeeId']) ? intval($_POST['employeeId']) : 0;
+    $newName = htmlspecialchars($_POST['newName']);
+    $newEmail = strtolower(htmlspecialchars($_POST['newEmail']));
+    $newTelephone = htmlspecialchars($_POST['newTelephone']);
+
+    // Requête SQL pour mettre à jour les informations de l'employé
+    $updateEmployee = $bdd->prepare('UPDATE utilisateurs SET pseudo = ?, email = ?, phone = ? WHERE id = ?');
+    $updateEmployee->execute([$newName, $newEmail, $newTelephone, $employeeId]);
+
+    if ($updateEmployee) {
+        echo 'Informations de l\'employé mises à jour avec succès.';
+        header('Location: /profil.php');
+    } else {
+        echo 'Erreur lors de la mise à jour des informations de l\'employé.';
+    }
 }
 
 //DELETE ARTICLE\\

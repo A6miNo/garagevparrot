@@ -2,19 +2,19 @@
 .main-contain {
     position: relative;
     width: 100%;
-    height: 80vh; /* Un tiers de la hauteur de l'écran */
-}
+    height: 83vh; }
 
 .child1{
     position: absolute;
     top: 1%;
     left: 0;
     width: 100%;
-    height: 95%;
+    height: 99%;
 }
 
 .child2{
     z-index: 1;
+
   
 }
 
@@ -63,6 +63,8 @@
     justify-content: center;
     gap: 2rem;
     padding:1rem;
+    height: 230px;
+
 }
 
 /* Style pour l'icône de défilement */
@@ -88,6 +90,7 @@
 /* Style pour les listes à puces des horaires */
 .hour ul {
     padding: 5px;
+  
 }
 
 /* Style section a propos */
@@ -280,7 +283,8 @@
 
 
 
-@media screen and (max-width: 801px) {
+
+@media screen and (max-width: 768px) {
     /* STYLE RESPONSIVE BACKGROUND VIDEO */
 
     #video-background {
@@ -288,7 +292,7 @@
         opacity: 0.6;
     }
     .main-contain {
-        height: 90vh;
+        height: 100vh;
         width: auto;
         padding-bottom: 56.25%; /* Ratio 16:9 pour la vidéo (9 / 16 * 100) */
     }
@@ -305,16 +309,14 @@
     .description {
         font-size: small;
         width: 350px;
-        margin: 0 0.5rem 1rem 2rem;
+        margin: auto;
         border-radius: 10%;
         padding: 0;
     }
     .info-garage {
-        top: 60%;
-        gap: 1rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
+        height: 440px;
         flex-direction: column;
+   
     }
     .btn-tel{
         order:2;
@@ -331,7 +333,7 @@
     }
 
     .btn-contact {
-        padding: 20px;
+        padding: 0.7rem;
         border-radius: 30%;
         font-size: small;
     }

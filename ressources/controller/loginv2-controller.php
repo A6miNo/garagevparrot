@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-// Inclure le fichier de configuration de la base de données
-require_once 'C:\wamp64\www\garagevparrot\configbdd.php';
+// Include the database configuration file
+require_once '../../configbdd.php';
+
 if (isset($_POST["loginUser"])) {
     if (isset($_POST['email']) && isset($_POST['password'])) {
         $email = htmlspecialchars($_POST['email']);
@@ -12,32 +13,42 @@ if (isset($_POST["loginUser"])) {
 
         // Requête SQL pour vérifier si l'utilisateur existe avec l'email donné
         $check = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = ?');
-        $check->bindValue(":email", $email, PDO::PARAM_STR);
         $check->execute([$email]);
         $user = $check->fetch();
-
+        echo 'Mot de passe haché dans la base de données : ' . $user['password'];
         if ($user) {
-            if ($password == $user['password']) {
+            // Vérifier le mot de passe en texte brut
+            if ($password === $user['password']) {
+                // Mot de passe en texte brut trouvé, connexion réussie
                 $_SESSION['user'] = $user['id'];
 
-                header('Location: ' . $_SESSION['current_page']);
+                // Redirection vers la page d'origine ou une page par défaut
+                $redirect_page = isset($_SESSION['current_page']) ? $_SESSION['current_page'] : '/index.php';
+                header('Location: /profil.php');
                 setcookie('user', 'id', time() + 900, '/');
                 die();
-            } elseif (password_verify($password, $user['password'])) {
+            }
+            // Vérifier le mot de passe haché
+
+            elseif (password_verify($password, $user['password'])) {
                 // Mot de passe haché trouvé, connexion réussie
                 $_SESSION['user'] = $user['id'];
 
-                header('Location: ' . $_SESSION['current_page']);
+                // Redirection vers la page d'origine ou une page par défaut
+                $redirect_page = isset($_SESSION['current_page']) ? $_SESSION['current_page'] : '/index.php';
+                header('Location: /profil.php');
                 setcookie('user', 'id', time() + 900, '/');
                 die();
             } else {
-                // Aucune correspondance trouvée
+                // Mot de passe incorrect
                 echo 'Votre mot de passe est incorrect.';
             }
         } else {
+            // Utilisateur non enregistré
             echo "Cet utilisateur n'est pas enregistré";
         }
     } else {
+        // Tous les champs ne sont pas remplis
         echo "Veuillez remplir tous les champs";
     }
 }

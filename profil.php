@@ -3,7 +3,7 @@
 session_start();
 $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
 //Connection à la bdd
-require 'C:\wamp64\www\garagevparrot\configbdd.php';
+require_once 'configbdd.php';
 //recup pour le head
 require __DIR__ . '/ressources/config/menu.php';
 include __DIR__ . '/ressources/config/config_profil.php';
@@ -23,7 +23,7 @@ include __DIR__ . '/ressources/config/config_hour.php';
   <!-- Donner du SEO-->
   <meta name="keywords" content=<?= $mainMenu[$currentPage]['meta_keywords'] ?>>
   <meta name="description" content=<?= $mainMenu[$currentPage]['meta_description'] ?>>
-  <link rel="shortcut icon" type="image/x-icon" href="../ressources/asset/lib/icone-removebg-preview.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/asset/image/icone-removebg-preview.png">
   <title><?= $mainMenu[$currentPage]['head_title'] ?></title>
   <!--Liaison avec fichier style-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,19 +49,18 @@ include __DIR__ . '/ressources/config/config_hour.php';
 
         <!-- Titre au milieu -->
         <div class="col-md-4 text-center">
-          <h1>Bonjour <?= $salaries['pseudo'] ?></h1>
+          <h1><?= $greeting ?></h1>
         </div>
 
         <!-- Head annonce à droite -->
         <div class="col-md-4 text-right">
           <div class="head-annonce column">
             <p>
-              <?php
-              if ($salaries['role'] === "Administrateur") {
-                echo $salaries['pseudo'] . ' fait bien partie des utilisateurs ayant des droits étendus !';
-              }
-              ?>
-            </p>
+              <?php if (!empty($additionalMessage)) : ?>
+            <p><?= $additionalMessage ?></p>
+          <?php endif; ?>
+
+          </p>
           </div>
         </div>
       </div>
@@ -81,7 +80,11 @@ include __DIR__ . '/ressources/config/config_hour.php';
           <button class="mb-3 bg-dark text-light" data-category="message">Message <span class="countmess badge badge-pill bg-white text-danger">
               <?php
               $table_name = "formulaire";
-              $count = getTableObjectCount($bdd, $table_name);
+              $table_name = "formulaire";
+              $column = "etat";
+              $value = "A TRAITER";
+
+              $count = getTableObjectCount($bdd, $table_name, $column, $value);
               echo  $count;
               ?>
             </span>
@@ -114,7 +117,7 @@ include __DIR__ . '/ressources/config/config_hour.php';
         <section id="catalogue" class=" info catalogue mt-2">
           <h2>LES VOITURES A LA VENTE</h2>
           <button class="btn btn-success"><a class="createbtn text-white" href="./ressources/views/registercar.php">Créer un nouvel article</a></button>
-
+          <!-- ici  les cartes -->
           <?php
           include './ressources/sectionback/section-catalogue.php'
           ?>
@@ -122,6 +125,7 @@ include __DIR__ . '/ressources/config/config_hour.php';
         <!-- ------------------------------------------- AVIS -->
         <section id="avis" class=" info avis mt-2">
           <h2>LES AVIS EN ATTENTE DE VALIDATION</h2>
+          <p id="infoavis" class="font-weight-bold"></p>
           <?php
           include './ressources/sectionback/section-avis.php'
           ?>
